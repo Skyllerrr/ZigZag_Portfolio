@@ -1,0 +1,215 @@
+/* Reset */
+:root {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+p,
+strong,
+body,
+ul,
+li,
+div {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #673399;
+    line-height: 1;
+}
+
+h1,
+h2,
+p,
+strong {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* Layout, Style */
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.wrapper {
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.zigzag_header {
+    max-width: 1080px;
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.zigzag_title {
+    font-size: 40px;
+    color: white;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.zigzag_title strong {
+    display: block;
+    position: relative;
+    width: fit-content;
+}
+
+.zigzag_title strong::before {
+    content: "";
+    background-color: orangered;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0.5em;
+    z-index: -1;
+}
+
+.zigzag_title_description {
+    font-size: 14px;
+    color: #bd8fe8;
+    max-width: 600px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.zigzag_title_description::before {
+    content: "";
+    width: 278px;
+    height: 2px;
+    display: inline-block;
+    background-color: #bd8fe8;
+    margin: 0 25px 0 26px;
+}
+
+.zigzag_projects {
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.zigzag_project {
+    display: flex;
+    background-color: white;
+}
+
+.zigzag_project:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.zigzag_project+.zigzag_project {
+    margin-top: 24px;
+}
+
+.project_category {
+    font-size: 30px;
+    color: white;
+    width: 26%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    flex-shrink: 0;
+}
+
+.rest_img {
+    background-image: linear-gradient(rgba(103, 51, 153, 0.5),
+            rgba(103, 51, 153, 0.5)), url(./img/photo01.png);
+}
+
+.craft_img {
+    background-image: linear-gradient(rgba(103, 51, 153, 0.5),
+            rgba(103, 51, 153, 0.5)), url(./img/photo02.png);
+}
+
+.scrap_img {
+    background-image: linear-gradient(rgba(103, 51, 153, 0.5),
+            rgba(103, 51, 153, 0.5)), url(./img/photo03.png);
+}
+
+.project_content {
+    padding: 24px;
+    flex-grow: 1;
+}
+
+.project_title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #673399;
+    margin-top: -2px;
+    margin-bottom: 30px;
+    vertical-align: baseline;
+}
+
+.project_description {
+    font-size: 14px;
+    display: flex;
+    margin-top: -3px;
+    margin-bottom: -2px;
+}
+
+.project_description::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background-color: #bd8fe8;
+    border-radius: 50%;
+    margin-top: 2px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.project_content li+li {
+    margin-top: 18px;
+}
+
+
+/* media query */
+
+@media (max-width: 850px) {
+    .zigzag_header {
+        flex-direction: column;
+    }
+
+    .zigzag_title_description {
+        margin-top: 30px;
+    }
+
+    .zigzag_title_description::before {
+        content: none;
+    }
+
+    .zigzag_project,
+    .zigzag_project:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .project_category {
+        width: 100%;
+        height: 25vw;
+    }
+}
